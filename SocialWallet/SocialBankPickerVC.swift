@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialBankPickerVC: UITableViewController {
+class SocialBankPickerVC: BaseTableVC {
     
     var items:Array<SocialBank>?
     
@@ -37,6 +37,7 @@ class SocialBankPickerVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generateFakeData();
+        self.setupLeftMenuButton()
     }
 
     override func didReceiveMemoryWarning() {

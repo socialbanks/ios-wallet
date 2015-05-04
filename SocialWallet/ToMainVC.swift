@@ -10,9 +10,13 @@ import UIKit
 
 class ToMainVC: UIViewController {
     override func viewDidLoad() {
-        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc:UIViewController = mainStoryboard.instantiateInitialViewController() as! UIViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        //let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //let vc:UIViewController = mainStoryboard.instantiateInitialViewController() as! UIViewController
+        //self.presentViewController(vc, animated: true, completion: nil)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.showMenu(true)
+        
         /*self.transitionFromViewController(self, toViewController: vc, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: nil) { (Bool) -> Void in
             
         }*/
