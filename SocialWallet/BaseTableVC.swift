@@ -10,8 +10,38 @@ import UIKit
 
 class BaseTableVC: UITableViewController {
     
+    lazy var HUD:MBProgressHUD = {
+        let tmpHUD:MBProgressHUD = MBProgressHUD(view: self.view)
+        self.view.addSubview(tmpHUD)
+        //tmpHUD.delegate = self
+        tmpHUD.labelText = "Aguarde"
+        tmpHUD.detailsLabelText = "Carregando dados..."
+        //tmpHUD.square = true
+        return tmpHUD
+        }()
+    
+    func showLoading() {
+        self.showNetWorkActivity()
+        self.HUD.show(true)
+    }
+    
+    func hideLoading() {
+        self.showNetWorkActivity()
+        self.HUD.hide(true)
+    }
+    
+    func showNetWorkActivity() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    }
+    
+    func hideNetWorkActivity() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag;
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +51,7 @@ class BaseTableVC: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

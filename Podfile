@@ -4,3 +4,4 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'MMDrawerController'
 pod 'MMDrawerController+Storyboard'
+pod 'MBProgressHUD'

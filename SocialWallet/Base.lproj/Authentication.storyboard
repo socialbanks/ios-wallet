@@ -284,7 +284,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="ca9-2L-RkG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="ca9-2L-RkG"/>
@@ -335,7 +335,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="LFQ-eK-SHW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="LFQ-eK-SHW"/>
@@ -504,8 +504,7 @@
                                         <exclude reference="Yx5-M5-NYK"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="232" width="368" height="48"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="Cxc-1A-Vdd"/>
                                         <include reference="T9k-Td-dnN"/>
@@ -529,8 +528,7 @@
                                         <exclude reference="Grw-yV-N4Z"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="97" width="368" height="40"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Grw-yV-N4Z"/>
                                     </mask>
@@ -555,8 +553,7 @@
                                         <exclude reference="n9s-Ny-sAO"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="350" width="368" height="48"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="n9s-Ny-sAO"/>
                                     </mask>

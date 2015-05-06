@@ -18,8 +18,6 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initTextFields()
@@ -31,10 +29,27 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(sender: AnyObject) {
-        loginWasSuccessful()
+        self.showLoading()
+        let t:NSThread = NSThread(target: self, selector:"loginWasSuccessful", object: nil)
+        t.start()
+        
+        /*
+        NSThread* myThread = [[NSThread alloc] initWithTarget:self
+            selector:@selector(myThreadMainMethod:)
+        object:nil];
+        [myThread start];
+        
+        
+        self.showLoading()
+        NSThread.sleepForTimeInterval(2)
+        self.hideLoading()
+        */
+        //loginWasSuccessful()
     }
     
     func loginWasSuccessful() {
+        NSThread.sleepForTimeInterval(3)
+        self.hideLoading()
         let vc:UIViewController = self.instantiateViewControlerFromStoryboard("FirstTime", sbId: "Authentication")
         self.presentViewController(vc, animated: true, completion: nil)
     }

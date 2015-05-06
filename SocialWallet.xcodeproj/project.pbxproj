@@ -22,6 +22,8 @@
 		E658FB811AF5B04A00055413 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB801AF5B04A00055413 /* Transaction.swift */; };
 		E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */; };
 		E658FB871AF5C58D00055413 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB861AF5C58D00055413 /* PayVC.swift */; };
+		E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */; };
+		E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */; };
 		E6B7D4431AF7D8A200E726FF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4421AF7D8A200E726FF /* LoginVC.swift */; };
 		E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */; };
 		E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */; };
@@ -62,6 +64,8 @@
 		E658FB801AF5B04A00055413 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderVC.swift; sourceTree = "<group>"; };
 		E658FB861AF5C58D00055413 /* PayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
+		E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTwelveWordsVC.swift; sourceTree = "<group>"; };
+		E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemWalletVC.swift; sourceTree = "<group>"; };
 		E6B7D4401AF7CC9600E726FF /* SocialWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialWallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		E6B7D4421AF7D8A200E726FF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeVC.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				E6B7D4421AF7D8A200E726FF /* LoginVC.swift */,
 				E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */,
 				E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */,
+				E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */,
+				E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */,
 				E658FB811AF5B04A00055413 /* Transaction.swift in Sources */,
 				E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */,
 				E658FB7B1AF5973900055413 /* SocialBank.swift in Sources */,
@@ -379,6 +386,7 @@
 				E658FB721AF58CDA00055413 /* ToMainVC.swift in Sources */,
 				E658FB7F1AF5AEFA00055413 /* SocialBankDetailsVC.swift in Sources */,
 				E658FB4D1AF5704600055413 /* AppDelegate.swift in Sources */,
+				E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */,
 				E658FB871AF5C58D00055413 /* PayVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
