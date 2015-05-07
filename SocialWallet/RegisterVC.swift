@@ -7,35 +7,84 @@
 //
 
 import UIKit
+import Parse
 
-class RegisterVC: BaseTableVC {
+class RegisterVC: BaseTableVC, UITextFieldDelegate {
 
+    @IBOutlet weak var firstnameField: UITextField!
+    @IBOutlet weak var lastnameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    func initTextFields() {
+        self.firstnameField.delegate = self
+        self.lastnameField.delegate = self
+        self.emailField.delegate = self
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        initTextFields()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func registerWasSuccessful() {
         let vc:UIViewController = self.instantiateViewControlerFromStoryboard("FirstTime", sbId: "Authentication")
         self.presentViewController(vc, animated: true, completion: nil)
     }
-
+    
     @IBAction func registerAction(sender: AnyObject) {
-        registerWasSuccessful()
+        let dict:NSDictionary = ["firstName":firstnameField.text
+            ,"lastName": lastnameField.text
+            ,"email": emailField.text
+            ,"username": usernameField.text
+            ,"password": passwordField.text
+        ]
+        let puser:PFUser = PFUser()
+        puser.setValuesForKeysWithDictionary(dict as [NSObject : AnyObject])
+        
+        self.showLoading()
+        puser.signUpInBackgroundWithBlock { (result, error) -> Void in
+            if error == nil {
+                println("registered and logged as ", PFUser.currentUser())
+                self.registerWasSuccessful()
+            } else {
+                //WARNING: ver todos erros possiveis do parse!!
+                println("%@", error!.description)
+                let alert = UIAlertView(title: "Warning"
+                    , message: error!.description
+                    , delegate: nil
+                    , cancelButtonTitle: "Ok")
+                alert.show()
+            }
+            self.hideLoading()
+        }
+        
+        
+        //let user:User = User(dictionary: dict)!
+        
     }
+    
+    // MARK: UITextField delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // hides keyboard on return press
+        textField.resignFirstResponder()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
 

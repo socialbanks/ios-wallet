@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+class GenerateTwelveWordsVC: BaseVC {
+    
+    @IBAction func understoodAction(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.showMenu(true)
+    }
+    
+}

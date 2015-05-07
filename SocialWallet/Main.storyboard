@@ -11,7 +11,7 @@
         <!--SocialBank Picker-->
         <scene sceneID="rIb-g2-iiF">
             <objects>
-                <tableViewController title="SocialBank Picker" id="3d5-Qs-lDG" customClass="SocialBankPickerVC" customModule="SocialWallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="SocialBank Picker" modalTransitionStyle="crossDissolve" id="3d5-Qs-lDG" customClass="SocialBankPickerVC" customModule="SocialWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="22" sectionFooterHeight="22" id="l5h-DO-36V">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -937,7 +937,7 @@
         <!--DrawerMenu-->
         <scene sceneID="5Ec-Jw-7w3">
             <objects>
-                <tableViewController storyboardIdentifier="DrawerMenu" title="DrawerMenu" id="srg-np-Ycc" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrawerMenu" title="DrawerMenu" modalTransitionStyle="crossDissolve" id="srg-np-Ycc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gkI-cw-hva">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1069,7 +1069,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QB0-J3-xBI">
             <objects>
-                <navigationController storyboardIdentifier="SocialBankPickerNavigationController" id="rMA-hf-msr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SocialBankPickerNavigationController" modalTransitionStyle="crossDissolve" id="rMA-hf-msr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yM-cz-xWb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

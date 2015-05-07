@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 SocialBanks. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Parse
 
 class LoginVC: BaseTableVC, UITextFieldDelegate {
 
@@ -30,39 +32,35 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
     
     @IBAction func loginAction(sender: AnyObject) {
         self.showLoading()
-        let t:NSThread = NSThread(target: self, selector:"loginWasSuccessful", object: nil)
-        t.start()
         
-        /*
-        NSThread* myThread = [[NSThread alloc] initWithTarget:self
-            selector:@selector(myThreadMainMethod:)
-        object:nil];
-        [myThread start];
-        
-        
-        self.showLoading()
-        NSThread.sleepForTimeInterval(2)
-        self.hideLoading()
-        */
-        //loginWasSuccessful()
+        PFUser.logInWithUsernameInBackground(self.userTextField.text!, password:self.passwordTextField.text!) {
+            (user: PFUser?, error: NSError?) -> Void in
+            
+            if user != nil {
+                println("registered and logged as ", user!)
+                self.loginWasSuccessful()
+            } else {
+                //WARNING: ver todos erros possiveis do parse!!
+                println("%@", error!.description)
+                let alert = UIAlertView(title: "Warning"
+                    , message: error!.description
+                    , delegate: nil
+                    , cancelButtonTitle: "Ok")
+                alert.show()
+            }
+            
+            self.hideLoading()
+            
+        }
+
     }
     
     func loginWasSuccessful() {
-        NSThread.sleepForTimeInterval(3)
         self.hideLoading()
         let vc:UIViewController = self.instantiateViewControlerFromStoryboard("FirstTime", sbId: "Authentication")
         self.presentViewController(vc, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     // MARK: UITextField delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -70,7 +68,5 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    
 
 }

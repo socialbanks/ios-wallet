@@ -7,11 +7,11 @@
 //
 
 import Foundation
-/*
+
 class User: NSObject {
     var id:Int!
-    var firstName: String!
-    var lastName: String!
+    var firstname: String!
+    var lastname: String!
     var email: String!
     var username: String!
     var password: String!   // THIS CANNOT GO TO PRODUCTION!!
@@ -20,34 +20,34 @@ class User: NSObject {
         super.init()
         
         if let value = dictionary["firstname"] as? String {
-            self.name = value
-        }
-        else {
+            self.firstname = value
+        } else {
             return nil
         }
         
-        if let value = dictionary["lastname"] as? Float {
-            self.balance = value
-        }
-        else {
+        if let value = dictionary["lastname"] as? String {
+            self.lastname = value
+        } else {
             return nil
         }
         
-        if let value = dictionary["email"] as? Bool {
-            self.isBitcoin = value
+        if let value = dictionary["email"] as? String {
+            self.email = value
+        } else {
+            return nil
         }
             
-        if let value = dictionary["username"] as? Bool {
-            self.isBitcoin = value
+        if let value = dictionary["username"] as? String {
+            self.username = value
+        } else {
+            return nil
         }
             
-        if let value = dictionary["password"] as? Bool {
-            self.isBitcoin = value
-        }
-            
-        else {
+        if let value = dictionary["password"] as? String {
+            self.password = value
+        } else {
             return nil
         }
         
     }
-}*/
+}

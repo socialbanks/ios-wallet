@@ -20,13 +20,15 @@ class BaseTableVC: UITableViewController {
         return tmpHUD
         }()
     
+    //MARK: UI Functions
+    
     func showLoading() {
         self.showNetWorkActivity()
         self.HUD.show(true)
     }
     
     func hideLoading() {
-        self.showNetWorkActivity()
+        self.hideNetWorkActivity()
         self.HUD.hide(true)
     }
     

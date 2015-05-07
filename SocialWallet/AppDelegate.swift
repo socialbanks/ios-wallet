@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var drawerController: MMDrawerController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("bCOd9IKjrpxCPGYQfyagabirn7pYFjYTvJqkq1x1", clientKey: "ug8CJXOxrkKZXlHIGKYAMaINXX9gCb1kwMgMr0ye")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
         return true
     }
 
