@@ -19,9 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Initializing Parse
         Parse.enableLocalDatastore()
         Parse.setApplicationId("bCOd9IKjrpxCPGYQfyagabirn7pYFjYTvJqkq1x1", clientKey: "ug8CJXOxrkKZXlHIGKYAMaINXX9gCb1kwMgMr0ye")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        // Setting the settings
+        AppManager.sharedInstance.debugMode = false;
+        
+        // UI settings
+        // removing navigation bar separator and shadow
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        
+        // Checking current logged user:
+        if( PFUser.currentUser() != nil ) {
+            self.showMenu(false)
+        }
         
         return true
     }
@@ -61,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         drawerController?.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
         drawerController?.maximumLeftDrawerWidth = 210
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         if (animated) {
             UIView.transitionFromView(self.window!.rootViewController!.view, toView: drawerController!.view, duration: 0.65, options:UIViewAnimationOptions.TransitionCrossDissolve , completion: {(fininshed: Bool) -> ()  in

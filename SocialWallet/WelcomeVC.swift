@@ -1,39 +1,42 @@
 //
-//  LoginVC.swift
+//  WelcomeVC.swift
 //  SocialWallet
 //
-//  Created by Mauricio de Oliveira on 5/4/15.
+//  Created by Mauricio de Oliveira on 5/10/15.
 //  Copyright (c) 2015 SocialBanks. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Parse
 
-class LoginVC: BaseTableVC, UITextFieldDelegate {
-
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+class WelcomeVC: BaseVC, UITextFieldDelegate {
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     func initTextFields() {
-        userTextField.delegate = self
-        passwordTextField.delegate = self
+        usernameField.delegate = self
+        passwordField.delegate = self
     }
     
     override func viewDidLoad() {
+        initTextFields()
         super.viewDidLoad()
-        self.initTextFields()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     
     @IBAction func loginAction(sender: AnyObject) {
         self.showLoading()
         
-        PFUser.logInWithUsernameInBackground(self.userTextField.text!, password:self.passwordTextField.text!) {
+        PFUser.logInWithUsernameInBackground(self.usernameField.text!, password:self.passwordField.text!) {
             (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {
@@ -52,7 +55,7 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
             self.hideLoading()
             
         }
-
+        
     }
     
     func loginWasSuccessful() {
@@ -64,9 +67,9 @@ class LoginVC: BaseTableVC, UITextFieldDelegate {
     
     // MARK: UITextField delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // hides keyboard on return press
         textField.resignFirstResponder()
         return true
     }
+    
 
 }

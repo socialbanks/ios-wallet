@@ -10,34 +10,53 @@ import UIKit
 
 class SocialBankPickerVC: BaseTableVC {
     
-    var items:Array<SocialBank>?
+    var items:Array<SocialBank> = []
+    var rowsToExpand:Array<Int> = []
     
     func generateFakeData() {
         items = [];
         
-        items!.append(SocialBank(dictionary: [
+        items.append(SocialBank(dictionary: [
             "name": "Palmas"
             ,"balance": 123.12
             ,"isBitcoin": false
             ])!)
-        items!.append(SocialBank(dictionary: [
+        items.append(SocialBank(dictionary: [
             "name": "Bens"
             ,"balance": 1.95
             ,"isBitcoin": false
             ])!)
-        items!.append(SocialBank(dictionary: [
+        /*items!.append(SocialBank(dictionary: [
             "name": "Bitcoin"
             ,"balance": 0.00012
             ,"isBitcoin": true
             ])!)
-        
+        */
         self.tableView.reloadData()
+    }
+    
+    func fetchData() {
+        APIManager.sharedInstance.getBalances { (results, error) -> Void in
+            let result:NSArray = results!["result"] as! NSArray
+            self.items = []
+            for dict in result {
+                self.items.append(SocialBank(dictionary: dict as! NSDictionary)!)
+            }
+            self.tableView.reloadData()
+            println("end")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateFakeData();
+        fetchData()
         self.setupLeftMenuButton()
+        self.rowsToExpand = [];
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.setDefaultTitleLogo()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,20 +66,22 @@ class SocialBankPickerVC: BaseTableVC {
     
     //MARK: - UITableView Delegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.items != nil {
-            return self.items!.count
-        } else {
-            return 0
+        return self.items.count
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if contains(self.rowsToExpand, indexPath.row) {
+            return self.tableView.rowHeight + 96
+        }else{
+            return self.tableView.rowHeight
         }
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if self.items == nil {
-            return self.tableView.dequeueReusableCellWithIdentifier("BlankCell") as! UITableViewCell
-        }
-        
-        let socialBank = self.items![indexPath.row] as SocialBank
+        let socialBank = self.items[indexPath.row] as SocialBank
         var cell:UITableViewCell;
         
         if(socialBank.isBitcoin!) {
@@ -68,7 +89,7 @@ class SocialBankPickerVC: BaseTableVC {
             (cell as! BitcoinCell).loadFromSocialBank(socialBank)
         }else{
             cell = self.tableView.dequeueReusableCellWithIdentifier("SocialBankCell") as! SocialBankCell
-            (cell as! SocialBankCell).loadFromSocialBank(socialBank)
+            (cell as! SocialBankCell).loadFromSocialBank(socialBank, indexPath: indexPath)
         }
         
         return cell
@@ -78,14 +99,25 @@ class SocialBankPickerVC: BaseTableVC {
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.rowsToExpand = []
         if segue.identifier == "SocialBankSelected" {
             let selectedIndex:Int = self.tableView.indexPathForSelectedRow()!.row;
+            /*
             if selectedIndex == self.items!.count - 1 {
                 return; // can't select the "bitcoin" row
             }
-            let selectedSocialBank:SocialBank = items![selectedIndex]
+            */
+            let selectedSocialBank:SocialBank = items[selectedIndex]
             (segue.destinationViewController as! SocialBankDetailsVC).socialBank = selectedSocialBank;
         }
+    }
+    
+    
+    @IBAction func optionsTest(sender: AnyObject) {
+        (sender as! UIView).hidden = true
+        self.rowsToExpand.append(sender.tag-10000)
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
 
@@ -95,46 +127,28 @@ class SocialBankCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var payTabButton: UIButton!
+    
+    @IBOutlet weak var receiveButton: UIButton!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
+    
+    @IBOutlet weak var optionsButton: UIButton!
 
-    func loadFromSocialBank(object:SocialBank) {
+    func loadFromSocialBank(object:SocialBank, indexPath:NSIndexPath) {
         self.nameLabel.text = object.name
         self.balanceLabel.text = object.balance.description
+        
+        payTabButton.tag = 1000 + indexPath.row
+        receiveButton.tag = 2000 + indexPath.row
+        sendButton.tag = 3000 + indexPath.row
+        historyButton.tag = 4000 + indexPath.row
+        optionsButton.tag = 10000 + indexPath.row
+        optionsButton.hidden = false
     }
-    /*
-    @IBOutlet weak var empresaLabel: UILabel!
-    @IBOutlet weak var valorLabel: UILabel!
-    @IBOutlet weak var saldoLabel: UILabel!
-    @IBOutlet weak var vencimentoLabel: UILabel!
-        
+
     
-        func loadFromPFObject(object:PFObject) {
-            
-            self.empresaLabel.text = object["empresa"].description
-            
-            if let vencimento = object["vencimento"] as? NSDate {
-                self.vencimentoLabel.text = "Vencimento " + dateToString(vencimento)
-            }
-            
-            if let valor = object["valor"] as? Float {
-                self.valorLabel.text = "Valor " + moneyString(valor) + " MM"
-            }
-            
-            if let saldo = object["saldo"] as? Float {
-                self.saldoLabel.text = "Saldo " + moneyString(saldo) + " MM"
-            }
-            
-            
-            
-        }
-        
-        func updateBackground(number:Int) {
-            if number % 2 == 0 {
-                self.contentView.backgroundColor = UIColor(rgb: 0xF9F9F9)
-            } else {
-                self.contentView.backgroundColor = UIColor.whiteColor()
-            }
-        }
-    */
+    
 }
 
 class BitcoinCell: UITableViewCell {

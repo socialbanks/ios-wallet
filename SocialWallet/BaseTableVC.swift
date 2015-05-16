@@ -44,8 +44,16 @@ class BaseTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag;
-
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,19 +62,23 @@ class BaseTableVC: UITableViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: Navigation bar functions
+    func setDefaultTitleLogo() {
+        let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        logo.contentMode = .ScaleAspectFit
+        logo.image = UIImage(named: "logo_socialbanks")
+        self.navigationItem.titleView = logo
     }
-    */
+    
+    func removeNavigationBarSeparator() {
+        //[[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+        
+    }
     
     func setupLeftMenuButton() {
         let leftDrawerButton:MMDrawerBarButtonItem = MMDrawerBarButtonItem(target:self, action:"leftDrawerButtonPress")
-        leftDrawerButton.tintColor = UIColor.blueColor()
+        leftDrawerButton.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem = leftDrawerButton
     }
     
@@ -82,6 +94,10 @@ class BaseTableVC: UITableViewController {
         let mainStoryboard:UIStoryboard = UIStoryboard(name: sbId, bundle: nil)
         let vc:UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier(vcId) as! UIViewController
         return vc
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
 }

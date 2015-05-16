@@ -9,12 +9,47 @@
 import UIKit
 
 class BaseVC: UIViewController {
-
+    
+    lazy var HUD:MBProgressHUD = {
+        let tmpHUD:MBProgressHUD = MBProgressHUD(view: self.view)
+        self.view.addSubview(tmpHUD)
+        //tmpHUD.delegate = self
+        tmpHUD.labelText = "Aguarde"
+        tmpHUD.detailsLabelText = "Carregando dados..."
+        //tmpHUD.square = true
+        return tmpHUD
+        }()
+    
+    //MARK: UI Functions
+    
+    func showLoading() {
+        self.showNetWorkActivity()
+        self.HUD.show(true)
+    }
+    
+    func hideLoading() {
+        self.hideNetWorkActivity()
+        self.HUD.hide(true)
+    }
+    
+    func showNetWorkActivity() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    }
+    
+    func hideNetWorkActivity() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,19 +58,17 @@ class BaseVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: Navigation bar functions
+    func setDefaultTitleLogo() {
+        let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        logo.contentMode = .ScaleAspectFit
+        logo.image = UIImage(named: "logo_socialbanks")
+        self.navigationItem.titleView = logo
     }
-    */
     
     func setupLeftMenuButton() {
         let leftDrawerButton:MMDrawerBarButtonItem = MMDrawerBarButtonItem(target:self, action:"leftDrawerButtonPress")
-        leftDrawerButton.tintColor = UIColor.blueColor()
+        leftDrawerButton.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem = leftDrawerButton
     }
     
@@ -51,6 +84,12 @@ class BaseVC: UIViewController {
         let mainStoryboard:UIStoryboard = UIStoryboard(name: sbId, bundle: nil)
         let vc:UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier(vcId) as! UIViewController
         return vc
+    }
+    
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
 }

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D763AF07E437B9C4C04C4A92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 005BB773C0BC98DDA47972B3 /* libPods.a */; };
+		E61F81B11B07163A00EF2731 /* DrawerMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */; };
 		E658FB4D1AF5704600055413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB4C1AF5704600055413 /* AppDelegate.swift */; };
-		E658FB4F1AF5704600055413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB4E1AF5704600055413 /* ViewController.swift */; };
 		E658FB521AF5704600055413 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E658FB501AF5704600055413 /* Authentication.storyboard */; };
 		E658FB541AF5704600055413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E658FB531AF5704600055413 /* Images.xcassets */; };
 		E658FB571AF5704600055413 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E658FB551AF5704600055413 /* LaunchScreen.xib */; };
@@ -23,7 +23,10 @@
 		E658FB871AF5C58D00055413 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB861AF5C58D00055413 /* PayVC.swift */; };
 		E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */; };
 		E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */; };
-		E6B7D4431AF7D8A200E726FF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4421AF7D8A200E726FF /* LoginVC.swift */; };
+		E6988A381AFFD85C0008AA11 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6988A371AFFD85C0008AA11 /* WelcomeVC.swift */; };
+		E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69551AFED3C300E2A71C /* UserData.swift */; };
+		E6AE69581AFED49200E2A71C /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69571AFED49200E2A71C /* AppManager.swift */; };
+		E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69591AFED6A700E2A71C /* APIManager.swift */; };
 		E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */; };
 		E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */; };
 		E6B7D44A1AF7DD0800E726FF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4491AF7DD0800E726FF /* BaseVC.swift */; };
@@ -60,10 +63,10 @@
 		005BB773C0BC98DDA47972B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E606454E5D2DF3A5BF59AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		56CA49E48F3B0AE6F590731A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuVC.swift; sourceTree = "<group>"; };
 		E658FB471AF5704600055413 /* SocialWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E658FB4B1AF5704600055413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E658FB4C1AF5704600055413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E658FB4E1AF5704600055413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E658FB511AF5704600055413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		E658FB531AF5704600055413 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E658FB561AF5704600055413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -79,8 +82,11 @@
 		E658FB861AF5C58D00055413 /* PayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTwelveWordsVC.swift; sourceTree = "<group>"; };
 		E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemWalletVC.swift; sourceTree = "<group>"; };
+		E6988A371AFFD85C0008AA11 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		E6AE69551AFED3C300E2A71C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E6AE69571AFED49200E2A71C /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		E6AE69591AFED6A700E2A71C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E6B7D4401AF7CC9600E726FF /* SocialWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialWallet-Bridging-Header.h"; sourceTree = "<group>"; };
-		E6B7D4421AF7D8A200E726FF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeVC.swift; sourceTree = "<group>"; };
 		E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
 		E6B7D4491AF7DD0800E726FF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				E658FB4C1AF5704600055413 /* AppDelegate.swift */,
+				E6AE69571AFED49200E2A71C /* AppManager.swift */,
+				E6AE69591AFED6A700E2A71C /* APIManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -226,13 +234,9 @@
 		E658FB6E1AF5711900055413 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E6B7D4461AF7DCB000E726FF /* Base */,
 				E6B7D4411AF7D60E00E726FF /* Authentication */,
-				E658FB4E1AF5704600055413 /* ViewController.swift */,
-				E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */,
-				E658FB7E1AF5AEFA00055413 /* SocialBankDetailsVC.swift */,
-				E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */,
-				E658FB861AF5C58D00055413 /* PayVC.swift */,
+				E6B7D4461AF7DCB000E726FF /* Base */,
+				E6988A361AFFD6250008AA11 /* SocialBanks */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -243,18 +247,31 @@
 				E658FB7A1AF5973900055413 /* SocialBank.swift */,
 				E658FB801AF5B04A00055413 /* Transaction.swift */,
 				E6F0C6AD1AF7EC790079C4A8 /* User.swift */,
+				E6AE69551AFED3C300E2A71C /* UserData.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E6988A361AFFD6250008AA11 /* SocialBanks */ = {
+			isa = PBXGroup;
+			children = (
+				E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */,
+				E658FB861AF5C58D00055413 /* PayVC.swift */,
+				E658FB7E1AF5AEFA00055413 /* SocialBankDetailsVC.swift */,
+				E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */,
+				E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */,
+			);
+			name = SocialBanks;
 			sourceTree = "<group>";
 		};
 		E6B7D4411AF7D60E00E726FF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				E6B7D4421AF7D8A200E726FF /* LoginVC.swift */,
 				E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */,
-				E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */,
 				E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */,
 				E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */,
+				E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */,
+				E6988A371AFFD85C0008AA11 /* WelcomeVC.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -429,19 +446,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */,
+				E61F81B11B07163A00EF2731 /* DrawerMenuVC.swift in Sources */,
+				E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */,
 				E658FB811AF5B04A00055413 /* Transaction.swift in Sources */,
 				E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */,
 				E658FB7B1AF5973900055413 /* SocialBank.swift in Sources */,
+				E6988A381AFFD85C0008AA11 /* WelcomeVC.swift in Sources */,
 				E658FB771AF5916B00055413 /* SocialBankPickerVC.swift in Sources */,
 				E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */,
-				E6B7D4431AF7D8A200E726FF /* LoginVC.swift in Sources */,
 				E6F0C6AE1AF7EC790079C4A8 /* User.swift in Sources */,
 				E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */,
-				E658FB4F1AF5704600055413 /* ViewController.swift in Sources */,
 				E6F0C6B01AF7EE0F0079C4A8 /* RegisterVC.swift in Sources */,
 				E6B7D44A1AF7DD0800E726FF /* BaseVC.swift in Sources */,
 				E658FB7F1AF5AEFA00055413 /* SocialBankDetailsVC.swift in Sources */,
+				E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */,
 				E658FB4D1AF5704600055413 /* AppDelegate.swift in Sources */,
+				E6AE69581AFED49200E2A71C /* AppManager.swift in Sources */,
 				E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */,
 				E658FB871AF5C58D00055413 /* PayVC.swift in Sources */,
 			);

@@ -27,7 +27,14 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initTextFields()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false
+        self.navigationItem.title = "Cadastro"
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,10 +72,7 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
             }
             self.hideLoading()
         }
-        
-        
-        //let user:User = User(dictionary: dict)!
-        
+
     }
     
     // MARK: UITextField delegate
@@ -77,15 +81,5 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
 
 }

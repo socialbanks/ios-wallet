@@ -16,26 +16,21 @@ class SocialBank: NSObject {
     required init?(dictionary: NSDictionary) {
         super.init()
         
-        if let value = dictionary["name"] as? String {
+        if let value = dictionary["asset"] as? String {
             self.name = value
         }
         else {
             return nil
         }
         
-        if let value = dictionary["balance"] as? Float {
+        if let value = dictionary["quantity"] as? Float {
             self.balance = value
         }
         else {
             return nil
         }
         
-        if let value = dictionary["isBitcoin"] as? Bool {
-            self.isBitcoin = value
-        }
-        else {
-            return nil
-        }
+        self.isBitcoin = false;
         
     }
 }
