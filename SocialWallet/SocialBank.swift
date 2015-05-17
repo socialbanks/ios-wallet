@@ -7,69 +7,26 @@
 //
 
 import UIKit
+import Parse
 
-class SocialBank: NSObject {
-    var name: String!
-    var balance: Float!
-    var isBitcoin: Bool!
+class SocialBank: PFObject, PFSubclassing {
     
-    required init?(dictionary: NSDictionary) {
-        super.init()
-        
-        if let value = dictionary["asset"] as? String {
-            self.name = value
-        }
-        else {
-            return nil
-        }
-        
-        if let value = dictionary["quantity"] as? Float {
-            self.balance = value
-        }
-        else {
-            return nil
-        }
-        
-        self.isBitcoin = false;
-        
+    class func parseClassName() -> String {
+        return "SocialBank"
     }
+
+    
+    func getName() -> String {
+        return self.objectForKey("name")! as! String
+    }
+    
+    func getImage() -> UIImage {
+        let image:PFFile = self.objectForKey("image")! as! PFFile
+        return UIImage(data: image.getData()!)!
+    }
+    
+    func getSocialMoneyName() -> String {
+        return self.objectForKey("socialMoneyName")! as! String
+    }
+    
 }
-/*
-class Usuario: NSObject, BaseModelProtocol {
-    
-    var nome: String!
-    var email: String!
-    var id: Int!
-    
-    required init?(dictionary: NSDictionary) {
-        super.init()
-        
-        if let value = dictionary["id"] as? Int {
-            self.id = value
-        }
-        else {
-            return nil
-        }
-        
-        if let value = dictionary["nome"] as? String {
-            self.nome = value
-        }
-        else {
-            return nil
-        }
-        
-        if let value = dictionary["email"] as? String {
-            self.email = value
-        }
-        else {
-            return nil
-        }
-    }
-    
-    internal override var description : String {
-        get {
-            return "User(\(self.id)) - \(self.nome)|\(self.email)"
-        }
-    }
-}
-*/

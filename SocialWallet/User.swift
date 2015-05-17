@@ -7,47 +7,31 @@
 //
 
 import Foundation
+import Parse
 
-class User: NSObject {
-    var id:Int!
-    var firstname: String!
-    var lastname: String!
-    var email: String!
-    var username: String!
-    var password: String!   // THIS CANNOT GO TO PRODUCTION!!
-    
+class User: PFUser {
+    /*
     required init?(dictionary: NSDictionary) {
         super.init()
         
-        if let value = dictionary["firstname"] as? String {
-            self.firstname = value
-        } else {
-            return nil
-        }
+        let puser:PFUser = PFUser()
+        puser.setValuesForKeysWithDictionary(dict as [NSObject : AnyObject])
         
-        if let value = dictionary["lastname"] as? String {
-            self.lastname = value
-        } else {
-            return nil
+        self.showLoading()
+        puser.signUpInBackgroundWithBlock { (result, error) -> Void in
+            if error == nil {
+                println("registered and logged as ", PFUser.currentUser())
+                self.registerWasSuccessful()
+            } else {
+                //WARNING: ver todos erros possiveis do parse!!
+                println("%@", error!.description)
+                let alert = UIAlertView(title: "Warning"
+                    , message: error!.description
+                    , delegate: nil
+                    , cancelButtonTitle: "Ok")
+                alert.show()
+            }
+            self.hideLoading()
         }
-        
-        if let value = dictionary["email"] as? String {
-            self.email = value
-        } else {
-            return nil
-        }
-            
-        if let value = dictionary["username"] as? String {
-            self.username = value
-        } else {
-            return nil
-        }
-            
-        if let value = dictionary["password"] as? String {
-            self.password = value
-        } else {
-            return nil
-        }
-        
-    }
+    }*/
 }

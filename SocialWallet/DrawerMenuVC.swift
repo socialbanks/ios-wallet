@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class DrawerMenuVC: BaseTableVC {
 
@@ -21,15 +22,21 @@ class DrawerMenuVC: BaseTableVC {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func configurationsAction(sender: AnyObject) {
+        
     }
-    */
+    
+    @IBAction func logoutAction(sender: AnyObject) {
+        var alert = UIAlertController(title: "Logout", message: "Do you really wish to log out?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (alert :UIAlertAction!) in
+            
+            PFUser.logOut()
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.showAuhtentication(true)
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
 }

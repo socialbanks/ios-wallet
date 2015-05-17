@@ -43,12 +43,15 @@ class BaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.removeLeftBarButtonTitle()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
+        
+        //self.removeLeftBarButtonTitle()
         
     }
 
@@ -74,6 +77,10 @@ class BaseVC: UIViewController {
     
     func leftDrawerButtonPress() {
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    }
+    
+    func removeLeftBarButtonTitle() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
     }
     
     func removeLeftBarButton() {

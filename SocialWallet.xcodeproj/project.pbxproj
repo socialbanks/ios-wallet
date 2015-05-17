@@ -24,6 +24,14 @@
 		E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */; };
 		E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */; };
 		E6988A381AFFD85C0008AA11 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6988A371AFFD85C0008AA11 /* WelcomeVC.swift */; };
+		E6A2D5F81B07976200C4BA42 /* BaseQRCodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5F71B07976200C4BA42 /* BaseQRCodeReaderVC.swift */; };
+		E6A2D5FA1B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5F91B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift */; };
+		E6A2D5FC1B07B21800C4BA42 /* PayTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5FB1B07B21800C4BA42 /* PayTabVC.swift */; };
+		E6A2D5FE1B07C32000C4BA42 /* ReceiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5FD1B07C32000C4BA42 /* ReceiveVC.swift */; };
+		E6A2D6001B07D38300C4BA42 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5FF1B07D38300C4BA42 /* NetworkManager.swift */; };
+		E6A2D6041B07D48F00C4BA42 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D6031B07D48F00C4BA42 /* Reachability.m */; };
+		E6A2D6071B07D89100C4BA42 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */; };
+		E6A2D6091B07FDF400C4BA42 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D6081B07FDF400C4BA42 /* Wallet.swift */; };
 		E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69551AFED3C300E2A71C /* UserData.swift */; };
 		E6AE69581AFED49200E2A71C /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69571AFED49200E2A71C /* AppManager.swift */; };
 		E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69591AFED6A700E2A71C /* APIManager.swift */; };
@@ -83,6 +91,15 @@
 		E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTwelveWordsVC.swift; sourceTree = "<group>"; };
 		E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemWalletVC.swift; sourceTree = "<group>"; };
 		E6988A371AFFD85C0008AA11 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		E6A2D5F71B07976200C4BA42 /* BaseQRCodeReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseQRCodeReaderVC.swift; sourceTree = "<group>"; };
+		E6A2D5F91B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTabQRCodeScannerVC.swift; sourceTree = "<group>"; };
+		E6A2D5FB1B07B21800C4BA42 /* PayTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTabVC.swift; sourceTree = "<group>"; };
+		E6A2D5FD1B07C32000C4BA42 /* ReceiveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveVC.swift; sourceTree = "<group>"; };
+		E6A2D5FF1B07D38300C4BA42 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E6A2D6031B07D48F00C4BA42 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E6A2D6051B07D4A600C4BA42 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		E6A2D6081B07FDF400C4BA42 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		E6AE69551AFED3C300E2A71C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E6AE69571AFED49200E2A71C /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		E6AE69591AFED6A700E2A71C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -155,6 +172,7 @@
 		E658FB3E1AF5704600055413 = {
 			isa = PBXGroup;
 			children = (
+				E6A2D6021B07D46A00C4BA42 /* Libs */,
 				E658FB491AF5704600055413 /* SocialWallet */,
 				E658FB5F1AF5704700055413 /* SocialWalletTests */,
 				E658FB481AF5704600055413 /* Products */,
@@ -217,6 +235,7 @@
 				E658FB4C1AF5704600055413 /* AppDelegate.swift */,
 				E6AE69571AFED49200E2A71C /* AppManager.swift */,
 				E6AE69591AFED6A700E2A71C /* APIManager.swift */,
+				E6A2D5FF1B07D38300C4BA42 /* NetworkManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -248,6 +267,7 @@
 				E658FB801AF5B04A00055413 /* Transaction.swift */,
 				E6F0C6AD1AF7EC790079C4A8 /* User.swift */,
 				E6AE69551AFED3C300E2A71C /* UserData.swift */,
+				E6A2D6081B07FDF400C4BA42 /* Wallet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -255,13 +275,26 @@
 		E6988A361AFFD6250008AA11 /* SocialBanks */ = {
 			isa = PBXGroup;
 			children = (
-				E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */,
+				E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */,
+				E6A2D5F91B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift */,
+				E6A2D5FB1B07B21800C4BA42 /* PayTabVC.swift */,
 				E658FB861AF5C58D00055413 /* PayVC.swift */,
+				E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */,
 				E658FB7E1AF5AEFA00055413 /* SocialBankDetailsVC.swift */,
 				E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */,
-				E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */,
+				E6A2D5FD1B07C32000C4BA42 /* ReceiveVC.swift */,
+				E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */,
 			);
 			name = SocialBanks;
+			sourceTree = "<group>";
+		};
+		E6A2D6021B07D46A00C4BA42 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E6A2D6031B07D48F00C4BA42 /* Reachability.m */,
+				E6A2D6051B07D4A600C4BA42 /* Reachability.h */,
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 		E6B7D4411AF7D60E00E726FF /* Authentication */ = {
@@ -281,6 +314,7 @@
 			children = (
 				E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */,
 				E6B7D4491AF7DD0800E726FF /* BaseVC.swift */,
+				E6A2D5F71B07976200C4BA42 /* BaseQRCodeReaderVC.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -445,19 +479,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6A2D5FA1B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift in Sources */,
 				E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */,
 				E61F81B11B07163A00EF2731 /* DrawerMenuVC.swift in Sources */,
 				E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */,
+				E6A2D6041B07D48F00C4BA42 /* Reachability.m in Sources */,
 				E658FB811AF5B04A00055413 /* Transaction.swift in Sources */,
+				E6A2D5F81B07976200C4BA42 /* BaseQRCodeReaderVC.swift in Sources */,
 				E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */,
 				E658FB7B1AF5973900055413 /* SocialBank.swift in Sources */,
 				E6988A381AFFD85C0008AA11 /* WelcomeVC.swift in Sources */,
 				E658FB771AF5916B00055413 /* SocialBankPickerVC.swift in Sources */,
+				E6A2D6071B07D89100C4BA42 /* HistoryVC.swift in Sources */,
 				E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */,
 				E6F0C6AE1AF7EC790079C4A8 /* User.swift in Sources */,
+				E6A2D6001B07D38300C4BA42 /* NetworkManager.swift in Sources */,
+				E6A2D6091B07FDF400C4BA42 /* Wallet.swift in Sources */,
 				E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */,
 				E6F0C6B01AF7EE0F0079C4A8 /* RegisterVC.swift in Sources */,
 				E6B7D44A1AF7DD0800E726FF /* BaseVC.swift in Sources */,
+				E6A2D5FE1B07C32000C4BA42 /* ReceiveVC.swift in Sources */,
+				E6A2D5FC1B07B21800C4BA42 /* PayTabVC.swift in Sources */,
 				E658FB7F1AF5AEFA00055413 /* SocialBankDetailsVC.swift in Sources */,
 				E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */,
 				E658FB4D1AF5704600055413 /* AppDelegate.swift in Sources */,

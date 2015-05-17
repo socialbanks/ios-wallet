@@ -19,18 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // Initializing Parse
-        Parse.enableLocalDatastore()
-        Parse.setApplicationId("bCOd9IKjrpxCPGYQfyagabirn7pYFjYTvJqkq1x1", clientKey: "ug8CJXOxrkKZXlHIGKYAMaINXX9gCb1kwMgMr0ye")
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
         // Setting the settings
         AppManager.sharedInstance.debugMode = false;
+        
         
         // UI settings
         // removing navigation bar separator and shadow
         UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        
+        
+        // Initializing Parse
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("bCOd9IKjrpxCPGYQfyagabirn7pYFjYTvJqkq1x1", clientKey: "ug8CJXOxrkKZXlHIGKYAMaINXX9gCb1kwMgMr0ye")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        
+        // Registering subclasses
+        SocialBank.registerSubclass()
+        Wallet.registerSubclass()
+        Transaction.registerSubclass()
         
         
         // Checking current logged user:
@@ -63,6 +71,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func showAuhtentication(animated: Bool) {
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil);
+        let navVC = storyboard.instantiateInitialViewController() as! UINavigationController
+        
+        if (animated) {
+            UIView.transitionFromView(self.window!.rootViewController!.view, toView: navVC.view, duration: 0.65, options:UIViewAnimationOptions.TransitionCrossDissolve , completion: {(fininshed: Bool) -> ()  in
+                self.window!.rootViewController = navVC
+                self.window?.makeKeyAndVisible()
+            })
+        } else {
+            self.window!.rootViewController = navVC
+            self.window?.makeKeyAndVisible()
+        }
+    }
     
     func showMenu(animated: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil);

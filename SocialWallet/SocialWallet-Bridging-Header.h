@@ -9,9 +9,13 @@
 #ifndef SocialWallet_SocialWallet_Bridging_Header_h
 #define SocialWallet_SocialWallet_Bridging_Header_h
 
+#import <Parse/PFObject+Subclass.h>
+
 #import <MMDrawerController.h>
 #import <UIViewController+MMDrawerController.h>
 #import "MMDrawerBarButtonItem.h"
 #import <MBProgressHud.h>
+
+#import "Reachability.h"
 
 #endif

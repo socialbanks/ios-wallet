@@ -86,6 +86,10 @@ class BaseTableVC: UITableViewController {
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
+    func removeLeftBarButtonTitle() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+    }
+    
     func removeLeftBarButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
     }

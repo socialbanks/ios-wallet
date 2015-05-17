@@ -9,7 +9,7 @@
 import UIKit
 
 class SocialBankDetailsVC: BaseTableVC, UITableViewDelegate {
-    
+    /*
     var socialBank:SocialBank?
     var items:Array<Transaction>?
     
@@ -26,7 +26,12 @@ class SocialBankDetailsVC: BaseTableVC, UITableViewDelegate {
         
         let dict:Dictionary = [
             "date": "01/01/2001"
+        @IBOutlet weak var timeLabel: UILabel!
+        @IBOutlet weak var timeLabel: UILabel!
+        @IBOutlet weak var timeLabel: UILabel!
+        @IBOutlet weak var operationLabel: UILabel!
             ,"description": "This is a test"
+        @IBOutlet weak var operationLabel: UILabel!
             ,"amount": 123.12
         ]
         
@@ -139,26 +144,6 @@ class SocialBankDetailsVC: BaseTableVC, UITableViewDelegate {
         //self.view.bringSubviewToFront(self.socialBankView)
     }
     */
-
+*/
 }
 
-class TransactionCell: UITableViewCell {
-    
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    //@IBOutlet weak var comeLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    
-    func loadFromTransaction(object:Transaction) {
-        self.dateLabel.text = object.date
-        self.descriptionLabel.text = object.descriptionText
-        
-        if(object.amount > 0) {
-            self.amountLabel.text = "+ " + object.amount.description
-            self.amountLabel.textColor = UIColor.greenColor()
-        }else{
-            self.amountLabel.text = "- " + fabsf(object.amount).description
-            self.amountLabel.textColor = UIColor.redColor()
-        }
-    }
-}

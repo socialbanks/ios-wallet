@@ -7,36 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class SocialBankPickerVC: BaseTableVC {
     
-    var items:Array<SocialBank> = []
+    var items:Array<PFObject> = []
     var rowsToExpand:Array<Int> = []
     
-    func generateFakeData() {
-        items = [];
-        
-        items.append(SocialBank(dictionary: [
-            "name": "Palmas"
-            ,"balance": 123.12
-            ,"isBitcoin": false
-            ])!)
-        items.append(SocialBank(dictionary: [
-            "name": "Bens"
-            ,"balance": 1.95
-            ,"isBitcoin": false
-            ])!)
-        /*items!.append(SocialBank(dictionary: [
-            "name": "Bitcoin"
-            ,"balance": 0.00012
-            ,"isBitcoin": true
-            ])!)
-        */
-        self.tableView.reloadData()
-    }
-    
     func fetchData() {
-        APIManager.sharedInstance.getBalances { (results, error) -> Void in
+        /*APIManager.sharedInstance.getBalances { (results, error) -> Void in
             let result:NSArray = results!["result"] as! NSArray
             self.items = []
             for dict in result {
@@ -44,7 +23,14 @@ class SocialBankPickerVC: BaseTableVC {
             }
             self.tableView.reloadData()
             println("end")
+        }*/
+        APIManager.sharedInstance.getWalletsFromCurrentUser { (results) -> Void in
+            for wallet in results {
+                self.items.append(wallet)
+            }
+            self.tableView.reloadData()
         }
+        
     }
     
     override func viewDidLoad() {
@@ -55,6 +41,7 @@ class SocialBankPickerVC: BaseTableVC {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.setDefaultTitleLogo()
         self.tableView.reloadData()
     }
@@ -81,16 +68,12 @@ class SocialBankPickerVC: BaseTableVC {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let socialBank = self.items[indexPath.row] as SocialBank
-        var cell:UITableViewCell;
+        let wallet:Wallet = self.items[indexPath.row] as! Wallet
         
-        if(socialBank.isBitcoin!) {
-            cell = self.tableView.dequeueReusableCellWithIdentifier("BitcoinCell") as! BitcoinCell
-            (cell as! BitcoinCell).loadFromSocialBank(socialBank)
-        }else{
-            cell = self.tableView.dequeueReusableCellWithIdentifier("SocialBankCell") as! SocialBankCell
-            (cell as! SocialBankCell).loadFromSocialBank(socialBank, indexPath: indexPath)
-        }
+        var cell:SocialBankCell;
+        
+        cell = self.tableView.dequeueReusableCellWithIdentifier("SocialBankCell") as! SocialBankCell
+        cell.loadFromWallet(wallet, indexPath: indexPath)
         
         return cell
         
@@ -100,15 +83,16 @@ class SocialBankPickerVC: BaseTableVC {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         self.rowsToExpand = []
-        if segue.identifier == "SocialBankSelected" {
-            let selectedIndex:Int = self.tableView.indexPathForSelectedRow()!.row;
-            /*
-            if selectedIndex == self.items!.count - 1 {
-                return; // can't select the "bitcoin" row
-            }
-            */
-            let selectedSocialBank:SocialBank = items[selectedIndex]
-            (segue.destinationViewController as! SocialBankDetailsVC).socialBank = selectedSocialBank;
+        if segue.identifier == "RECEIVE" {
+            let vc:ReceiveVC = segue.destinationViewController as! ReceiveVC
+            let index:Int = sender!.tag - 2000
+            vc.wallet = items[index] as? Wallet
+        }
+        
+        if segue.identifier == "HISTORY" {
+            let vc:HistoryVC = segue.destinationViewController as! HistoryVC
+            let index:Int = sender!.tag - 4000
+            vc.wallet = items[index] as? Wallet
         }
     }
     
@@ -135,9 +119,15 @@ class SocialBankCell: UITableViewCell {
     
     @IBOutlet weak var optionsButton: UIButton!
 
-    func loadFromSocialBank(object:SocialBank, indexPath:NSIndexPath) {
-        self.nameLabel.text = object.name
-        self.balanceLabel.text = object.balance.description
+    func loadFromWallet(object:Wallet, indexPath:NSIndexPath) {
+        
+        self.nameLabel.text = object.getSocialBank().getName()
+        
+        let balance:Int = object["balance"] as! Int
+        let balanceMajor:Int = balance/100
+        let balanceMinor:Int = balance % 100
+        
+        self.balanceLabel.text = balanceMajor.description + "," + balanceMinor.description
         
         payTabButton.tag = 1000 + indexPath.row
         receiveButton.tag = 2000 + indexPath.row
@@ -149,15 +139,4 @@ class SocialBankCell: UITableViewCell {
 
     
     
-}
-
-class BitcoinCell: UITableViewCell {
-    
-    @IBOutlet weak var convertedBalanceLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
-    
-    func loadFromSocialBank(object:SocialBank) {
-        self.convertedBalanceLabel.text = "2.50 BRL"
-        self.balanceLabel.text = object.balance.description + " BTC"
-    }
 }
