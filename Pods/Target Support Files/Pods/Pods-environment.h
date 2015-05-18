@@ -6,6 +6,48 @@
 // project.
 
 
+// Bitheri
+#define COCOAPODS_POD_AVAILABLE_Bitheri
+#define COCOAPODS_VERSION_MAJOR_Bitheri 1
+#define COCOAPODS_VERSION_MINOR_Bitheri 3
+#define COCOAPODS_VERSION_PATCH_Bitheri 4
+
+// CocoaLumberjack
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack 1
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack 9
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack 2
+
+// CocoaLumberjack/Core
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack_Core
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack_Core 1
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Core 9
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Core 2
+
+// CocoaLumberjack/Extensions
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack_Extensions
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack_Extensions 1
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Extensions 9
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Extensions 2
+
+// FMDB
+#define COCOAPODS_POD_AVAILABLE_FMDB
+#define COCOAPODS_VERSION_MAJOR_FMDB 2
+#define COCOAPODS_VERSION_MINOR_FMDB 5
+#define COCOAPODS_VERSION_PATCH_FMDB 0
+
+// FMDB/common
+#define COCOAPODS_POD_AVAILABLE_FMDB_common
+#define COCOAPODS_VERSION_MAJOR_FMDB_common 2
+#define COCOAPODS_VERSION_MINOR_FMDB_common 5
+#define COCOAPODS_VERSION_PATCH_FMDB_common 0
+
+// FMDB/standard
+#define COCOAPODS_POD_AVAILABLE_FMDB_standard
+#define COCOAPODS_VERSION_MAJOR_FMDB_standard 2
+#define COCOAPODS_VERSION_MINOR_FMDB_standard 5
+#define COCOAPODS_VERSION_PATCH_FMDB_standard 0
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
@@ -47,4 +89,16 @@
 #define COCOAPODS_VERSION_MAJOR_MMDrawerController_Subclass 0
 #define COCOAPODS_VERSION_MINOR_MMDrawerController_Subclass 6
 #define COCOAPODS_VERSION_PATCH_MMDrawerController_Subclass 0
+
+// OpenSSL
+#define COCOAPODS_POD_AVAILABLE_OpenSSL
+#define COCOAPODS_VERSION_MAJOR_OpenSSL 1
+#define COCOAPODS_VERSION_MINOR_OpenSSL 0
+#define COCOAPODS_VERSION_PATCH_OpenSSL 110
+
+// Reachability
+#define COCOAPODS_POD_AVAILABLE_Reachability
+#define COCOAPODS_VERSION_MAJOR_Reachability 3
+#define COCOAPODS_VERSION_MINOR_Reachability 1
+#define COCOAPODS_VERSION_PATCH_Reachability 1
 

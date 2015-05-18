@@ -30,6 +30,8 @@ class PayTabVC: BaseTableVC {
     "value": 508
     */
     
+    var bitcoinAddress:String?
+    var receiverDescription:String?
     
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -38,14 +40,37 @@ class PayTabVC: BaseTableVC {
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
-    var transaction:PFObject = PFObject(className: "Transaction")
+    var wallet:Wallet?
+    var transaction:Transaction = Transaction(className:"Transaction")
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func loadFromUser(user:PFUser) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        APIManager.sharedInstance.getWalletFromBitcoinAddres(bitcoinAddress!, completion: { (result) -> Void in
+            
+            let user:PFUser = result.getUser()
+            self.fullnameLabel.text = user.objectForKey("firstName") as? String
+            self.emailLabel.text = user.email
+            if let photo = user["image"] as? PFFile {
+                let imageData:NSData = photo.getData()!
+                self.userphotoImageView.image = UIImage(data: imageData)
+            }
+            
+        })
+        
+    }
+    
+    func loadFromUser(user:PFUser) {
+        fullnameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
+        emailLabel.text = user.email!
+        if let photo = user["image"] as? PFFile {
+            let imageData:NSData = photo.getData()!
+            userphotoImageView.image = UIImage(data: imageData)
+        }
     }
     
     @IBAction func payAction(sender: AnyObject) {

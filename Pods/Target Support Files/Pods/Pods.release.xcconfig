@@ -1,6 +1,7 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MMDrawerController" "${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/MMDrawerController" -isystem "${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard"
-OTHER_LDFLAGS = -ObjC -l"Pods-MBProgressHUD" -l"Pods-MMDrawerController" -l"Pods-MMDrawerController+Storyboard" -framework "CoreGraphics" -framework "QuartzCore"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bitheri" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MMDrawerController" "${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard" "${PODS_ROOT}/Headers/Public/OpenSSL" "${PODS_ROOT}/Headers/Public/OpenSSL/openssl" "${PODS_ROOT}/Headers/Public/Reachability"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/OpenSSL/lib" "$(PODS_ROOT)/OpenSSL/lib"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Bitheri" -isystem "${PODS_ROOT}/Headers/Public/CocoaLumberjack" -isystem "${PODS_ROOT}/Headers/Public/FMDB" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/MMDrawerController" -isystem "${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard" -isystem "${PODS_ROOT}/Headers/Public/OpenSSL" -isystem "${PODS_ROOT}/Headers/Public/OpenSSL/openssl" -isystem "${PODS_ROOT}/Headers/Public/Reachability"
+OTHER_LDFLAGS = -ObjC -l"Pods-Bitheri" -l"Pods-CocoaLumberjack" -l"Pods-FMDB" -l"Pods-MBProgressHUD" -l"Pods-MMDrawerController" -l"Pods-MMDrawerController+Storyboard" -l"Pods-OpenSSL" -l"Pods-Reachability" -l"crypto" -l"sqlite3" -l"ssl" -framework "CoreGraphics" -framework "QuartzCore" -framework "SystemConfiguration"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

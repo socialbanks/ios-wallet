@@ -21,18 +21,84 @@ class APIManager {
         return Static.instance
     }
     
+    //MARK: - Saves
+    /*func saveTransaction(bitcoinAddress:String, completion: (results:[Wallet]) -> Void) {
+        let queryWallet:PFQuery = PFQuery(className: "Wallet")
+        queryWallet.whereKey("bitcoinAddress", equalTo: bitcoinAddress)
+        
+        if Network.hasConnectivity() {
+            query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]?, error: NSError?) -> Void in
+                if (error != nil) {
+                    // There was an error
+                } else {
+                    println(results)
+                    completion(results: results as! [Wallet])
+                }
+            })
+        }
+    }*/
     
     //MARK: - Queries
     func getWalletsFromCurrentUser(completion: (results:[Wallet]) -> Void) {
         //let query:PFQuery = PFQuery(className: "Wallet")
+        let relation = PFUser.currentUser()!.relationForKey("wallet")
+        let query = relation.query()!
+        query.includeKey("socialBank")
         
         if Network.hasConnectivity() {
-            let relation = PFUser.currentUser()!.relationForKey("wallet")
             relation.query()?.findObjectsInBackgroundWithBlock({ (results: [AnyObject]?, error: NSError?) -> Void in
                 if (error != nil) {
                     // There was an error
                 } else {
                     completion(results: results as! [Wallet])
+                }
+            })
+        }
+    }
+    
+    func getSocialBanksWithName(name:String, completion: (results:[SocialBank]) -> Void) {
+        let query:PFQuery = PFQuery(className: "SocialBank")
+        query.whereKey("name", containsString: name)
+        if Network.hasConnectivity() && !name.isEmpty {
+            query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]?, error: NSError?) -> Void in
+                if (error != nil) {
+                    // There was an error
+                } else {
+                    println(results)
+                    completion(results: results as! [SocialBank])
+                }
+            })
+        }
+    }
+    
+    func getWalletFromBitcoinAddres(bitcoinAddress:String, completion: (result:Wallet) -> Void) {
+        let query:PFQuery = PFQuery(className: "Wallet")
+        query.whereKey("bitcoinAddress", equalTo: bitcoinAddress)
+        query.includeKey("user")
+        query.includeKey("socialBank")
+        if Network.hasConnectivity() {
+            query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]?, error: NSError?) -> Void in
+                if (error != nil) {
+                    // There was an error
+                } else {
+                    if(results!.count > 0) {
+                        completion(result: results![0] as! Wallet)
+                    }
+                }
+            })
+        }
+    }
+    
+    func getUsersWithEmail(email:String, completion: (results:[PFUser]) -> Void) {
+        var query:PFQuery = PFUser.query()!;
+        query.whereKey("email",  containsString: email)
+        if Network.hasConnectivity() && !email.isEmpty {
+            query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]?, error: NSError?) -> Void in
+                if (error != nil) {
+                    // There was an error
+                } else {
+                    println(results)
+                    completion(results: results as! [PFUser])
                 }
             })
         }

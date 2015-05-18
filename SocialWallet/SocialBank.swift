@@ -14,11 +14,15 @@ class SocialBank: PFObject, PFSubclassing {
     class func parseClassName() -> String {
         return "SocialBank"
     }
-
-    
+        
     func getName() -> String {
         return self.objectForKey("name")! as! String
     }
+    
+    func getAddress() -> String {
+        return self.objectForKey("address")! as! String
+    }
+
     
     func getImage() -> UIImage {
         let image:PFFile = self.objectForKey("image")! as! PFFile

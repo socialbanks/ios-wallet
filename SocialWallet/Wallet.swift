@@ -15,6 +15,8 @@ class Wallet: PFObject, PFSubclassing {
         return "Wallet"
     }
     
+    var socialBank:SocialBank?
+    
     func getBitcoinAddress() -> String {
         return self.objectForKey("bitcoinAddress")! as! String
     }
@@ -24,7 +26,13 @@ class Wallet: PFObject, PFSubclassing {
     }
     
     func getSocialBank() -> SocialBank {
-        let object = self.objectForKey("socialBank") as! SocialBank
+        let object = self["socialBank"] as! SocialBank
+        object.fetchIfNeeded()
+        return object
+    }
+    
+    func getUser() -> PFUser {
+        let object = self["user"] as! PFUser
         object.fetchIfNeeded()
         return object
     }

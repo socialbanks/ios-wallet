@@ -35,9 +35,6 @@ class HistoryVC: BaseTableVC {
                 if(transaction.getSenderWallet() != nil && self.wallet!.isEqual(transaction.getSenderWallet()!)) {
                     transaction.isSender = true
                 }
-                if(transaction.getReceiverWallet() != nil && self.wallet!.isEqual(transaction.getReceiverWallet()!)) {
-                    transaction.isSender = false
-                }
                 
                 self.items.append(transaction)
             }
@@ -95,18 +92,22 @@ class TransactionCell: UITableViewCell {
         dateLabel.text = object.createdAt!.description
         timeLabel.text = ""
         
+        let major:Int = object.getValue()/100
+        let minor:Int = object.getValue() % 100
+        amountLabel.text = major.description + "," + minor.description
+
         if(object.isSender) {
             operationLabel.text = "-"
             descriptionLabel.text = object.getSenderDescription()
+            operationLabel.textColor = UIColor.redColor()
+            amountLabel.textColor = UIColor.redColor()
         }else{
             operationLabel.text = "+"
             descriptionLabel.text = object.getReceiverDescription()
+            operationLabel.textColor = UIColor.greenColor()
+            amountLabel.textColor = UIColor.greenColor()
         }
         
-        let major:Int = object.getValue()/100
-        let minor:Int = object.getValue() % 100
-        
-        amountLabel.text = major.description + "," + minor.description
         
         
         /*self.dateLabel.text = object.date

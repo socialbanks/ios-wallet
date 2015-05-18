@@ -16,6 +16,13 @@
 #import "MMDrawerBarButtonItem.h"
 #import <MBProgressHud.h>
 
-#import "Reachability.h"
+#import "BTHDMBid.h"
+#import "NSString+Base58.h"
+#import "BTBIP32Key.h"
+#import "BTBIP39.h"
+#import "NSData+Hash.h"
+#import "BTHDMAddress.h"
+
+#import <Reachability.h>
 
 #endif

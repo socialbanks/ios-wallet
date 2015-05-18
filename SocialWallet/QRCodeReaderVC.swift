@@ -95,7 +95,7 @@ class QRCodeReaderVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        (segue.destinationViewController as! PayVC).addressTextField.text = messageLabel.text
+        //(segue.destinationViewController as! PayVC).addressTextField.text = messageLabel.text
     }
     
 }
