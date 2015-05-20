@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Parse
 import Bolts
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,33 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // BITCOIN TEST
-        /*let seedString:NSString = "b221d9dbb083a7f33428d7c2a3c3198a"
-        let seed:NSData = seedString.hexToData()
-        //fkey.address = "b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716cca0000000000"
-        
-        
-        var bt:BTBIP32Key = BTBIP32Key(secret: seed, andPubKey: nil, andChain: nil, andPath: nil)
-        //[[BTBIP32Key alloc] initWithSecret:secret andPubKey:nil andChain:chain andPath:path];
-        //println(BTBIP39.sharedInstance().getWords())
-        let data:NSData = BTBIP39.sharedInstance().decodePhrase("buy bid grade held cool survive ceiling knock milk over yeah relax")
-        var bt2:BTBIP32Key = BTBIP32Key(secret: data, andPubKey: nil, andChain: nil, andPath: nil)
-        */
-        
-        //AppManager.sharedInstance.userLocalData = UserLocalData(parseId: "")
-        //AppManager.sharedInstance.userLocalData!.generatePrivateAddress()
-        
-        /* cache code
-        // Store the data
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setObject:firstName forKey:@"firstName"];
-        [defaults setObject:lastName forKey:@"lastname"];
-        [defaults setInteger:age forKey:@"age"];
-        [defaults setObject:imageData forKey:@"image"];
-        
-        [defaults synchronize];
-        */
+        // Fabric
+        Fabric.with([Crashlytics()])
         
         // Setting the settings
         AppManager.sharedInstance.debugMode = false;
@@ -88,75 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // SIGNING TEST (SCRAPPED)
-        /*
-        let seedString:NSString = "b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716cca0000000000"
-        let seed:NSData = seedString.hexToData()
-        var bt:BTBIP32Key = BTBIP32Key(secret: seed, andPubKey: nil, andChain: nil, andPath: nil)
-        
-        var hash:NSString = bt.pubKey.description
-        hash = hash.stringByReplacingOccurrencesOfString(" ", withString: "")
-        hash = hash.stringByReplacingOccurrencesOfString("<", withString: "")
-        hash = hash.stringByReplacingOccurrencesOfString(">", withString: "")
-        
-        
-        let stringData:String = hexadecimalString(bt.pubKey)
-        
-        let param:NSDictionary = [
-            "source": bt.address
-            ,"destination": "1Ko36AjTKYh6EzToLU737Bs2pxCsGReApK"
-            ,"quantity": 1500000000
-            ,"asset": "BRAZUCA"
-            ,"pubkey": hash
-        ]
-        
-        PFCloud.callFunctionInBackground("send", withParameters: param as [NSObject : AnyObject]) { (results, error) -> Void in
-            if((error) != nil) {
-                println("error on getBalances - ", error!.description)
-            }else{
-                println(results)
-                
-                let data:NSString = results!["result"] as! NSString
-                var trans = BTTx(message: data.hexToData())
-                trans.signWithPrivateKeys([bt.key.privateKey])
-                
-                //let dataSigned = bt.key.sign(data.hexToData())
-                println(trans.verifySignatures())
-                
-                println(self.hexadecimalString(trans.toData()))
-                //completion(results: results, error: error)
-            }
-        }
-        */
-        
-        
-        // Bitcoin transaction. The real deal!
-        //AppManager.sharedInstance.userLocalData = UserLocalData(parseId: "")
-        //AppManager.sharedInstance.userLocalData!.generatePrivateAddress()
-      
-        /*var data:NSString = "01000000013d1752950d03bc3438d10c3faaeddcf27d642dbadb26d8efc2c18d0857612d0d000000009200004730440220403fcb0dfadba8b66be1ef3fdbbfe56db0e76b8657cf2febbe659a9a42776f6802206b79399db9b1932e8a13c99e656f736fd253b3fbcfecfbb873f370b9dcadba78014752210213cc3e8aa13da9fdced6ac55737984b71a0ea6a9c1817cc15f687163813e44c82103d4e7ffa6ebedc601a5e9ca48b9d9110bef80c15ce45039a08a513801712579de52aeffffffff01e8030000000000001976a9149ea84056a5a9e294d93f11300be51d51868da69388ac00000000"
-        var btx = BRTransaction(message: data.hexToData())
-        
-        btx.signWithPrivateKeys([AppManager.sharedInstance.userLocalData!.bt!.key.privateKey])
-        */
-        /*
-        let value = 1
-        var error: NSError?
-        let pub:NSString = "967f947b7f995d7f45c4ce1f6eb42baf58376d8f9ba768322d2abe858f3bd272"
-        var hex:NSString = "01000000013d1752950d03bc3438d10c3faaeddcf27d642dbadb26d8efc2c18d0857612d0d0000000000ffffffff01e8030000000000001976a9149ea84056a5a9e294d93f11300be51d51868da69388ac00000000"
-        /*let btx:BTTx = BTTxBuilder.instance().buildTxWithOutputs(["14pkzzJbAg1N3EFkEnc4o5uHQJAzCqUUFJ"] as [AnyObject]
-            , toAddresses: ["AWXoDzdqqSbf3Fo7yKozXX2aP9nvmsVse"] as [AnyObject]
-            , amounts: [0]
-            , changeAddress: "14pkzzJbAg1N3EFkEnc4o5uHQJAzCqUUFJ"
-            , andError: &error)
-        *//*let btx = BTTxBuilder.instance().buildTxForAddress("14pkzzJbAg1N3EFkEnc4o5uHQJAzCqUUFJ"
-            , andScriptPubKey: pub.hexToData()
-            , andAmount: [value] as [AnyObject]
-            , andAddress: ["1FTuKcjGUrMWatFyt8i1RbmRzkY2V9TDMG"] as [AnyObject]
-            , andError: &error)
-        */
-        let btx = BTTx(message: hex.hexToData())
-        btx.verifySignatures()*/
         return true
     }
 

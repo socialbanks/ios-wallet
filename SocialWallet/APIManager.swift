@@ -27,7 +27,7 @@ class APIManager {
         let newWallet:Wallet = Wallet(className: "Wallet")
         newWallet.setObject(0, forKey: "balance")
         newWallet.setObject(AppManager.sharedInstance.userLocalData!.getPublicKey(), forKey: "bitcoinAddress")
-        newWallet.setObject(AppManager.sharedInstance.userLocalData!.secret!, forKey: "wif_remove")
+        newWallet.setObject(AppManager.sharedInstance.userLocalData!.bt!.key.privateKey, forKey: "wif_remove")
         newWallet.setObject(PFUser.currentUser()!, forKey: "user")
         socialBank.fetchIfNeeded()
         newWallet.setObject(socialBank, forKey: "socialBank")

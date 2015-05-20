@@ -53,6 +53,8 @@
 		E6E3C4511AFAA32C00D3B2D3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4501AFAA32C00D3B2D3 /* Accounts.framework */; };
 		E6E3C4531AFAA33300D3B2D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4521AFAA33300D3B2D3 /* Social.framework */; };
 		E6F0C6B01AF7EE0F0079C4A8 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */; };
+		E6F3B91E1B0C42F2005C54E2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F3B91C1B0C42F2005C54E2 /* Fabric.framework */; };
+		E6F3B91F1B0C42F2005C54E2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F3B91D1B0C42F2005C54E2 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		E6E3C4501AFAA32C00D3B2D3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E6E3C4521AFAA33300D3B2D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		E6F3B91C1B0C42F2005C54E2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		E6F3B91D1B0C42F2005C54E2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,11 +140,13 @@
 				E6E3C44C1AFA9EF200D3B2D3 /* QuartzCore.framework in Frameworks */,
 				E6E3C44D1AFA9EF200D3B2D3 /* Security.framework in Frameworks */,
 				E6E3C44E1AFA9EF200D3B2D3 /* StoreKit.framework in Frameworks */,
+				E6F3B91F1B0C42F2005C54E2 /* Crashlytics.framework in Frameworks */,
 				E6E3C44F1AFA9EF200D3B2D3 /* SystemConfiguration.framework in Frameworks */,
 				E6E3C44A1AFA9EF200D3B2D3 /* libz.dylib in Frameworks */,
 				E6E3C4491AFA9EF200D3B2D3 /* libsqlite3.dylib in Frameworks */,
 				D763AF07E437B9C4C04C4A92 /* libPods.a in Frameworks */,
 				E6E3C4381AFA9DFF00D3B2D3 /* Parse.framework in Frameworks */,
+				E6F3B91E1B0C42F2005C54E2 /* Fabric.framework in Frameworks */,
 				E6E3C4371AFA9DFE00D3B2D3 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +368,8 @@
 		F6ED824C3DB0430FB7B59BBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6F3B91C1B0C42F2005C54E2 /* Fabric.framework */,
+				E6F3B91D1B0C42F2005C54E2 /* Crashlytics.framework */,
 				E6E3C4521AFAA33300D3B2D3 /* Social.framework */,
 				E6E3C4501AFAA32C00D3B2D3 /* Accounts.framework */,
 				E6E3C43C1AFA9EF100D3B2D3 /* CFNetwork.framework */,
@@ -394,6 +402,7 @@
 				E658FB441AF5704600055413 /* Frameworks */,
 				E658FB451AF5704600055413 /* Resources */,
 				36A00A1C7393A64017969A25 /* Copy Pods Resources */,
+				E6F3B9061B0C4087005C54E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -512,6 +521,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		E6F3B9061B0C4087005C54E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 6d6761305d1e78f4840b335932ebcc353cd4590d bd3ab4abe77e9150ae056d5e1c35fe9bfe40cdbd57e43350808bac7c2e836dfe";
 		};
 /* End PBXShellScriptBuildPhase section */
 
