@@ -217,12 +217,12 @@
 
 - (NSData *)decodePhrase:(NSString *)phrase
 {
-    //NSArray *words = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS ofType:@"plist"]];
+    NSArray *words = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS ofType:@"plist"]];
     NSString *superString = @"";
     superString = [superString stringByReplacingOccurrencesOfString:@"," withString:@""];
     superString = [superString stringByReplacingOccurrencesOfString:@"'" withString:@""];
     
-    NSArray *words = [superString componentsSeparatedByString:@" "];
+    //NSArray *words = [superString componentsSeparatedByString:@" "];
     
     NSArray *a = CFBridgingRelease(CFStringCreateArrayBySeparatingStrings(SecureAllocator(),
                                                                           (CFStringRef)[self normalizePhrase:phrase], CFSTR(" ")));

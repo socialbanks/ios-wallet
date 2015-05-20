@@ -519,8 +519,9 @@
             if (script == nil)
                 return NO;
             NSString *address = script.getFromAddress;
-            if (address == nil)
-                return NO;
+            //script.getSig
+            //if (address == nil)
+              //  return NO;
             NSMutableData *d = [NSMutableData data];
             [d appendScriptPubKeyForAddress:address];
             [inScripts addObject:d];

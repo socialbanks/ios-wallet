@@ -7,24 +7,40 @@
 //
 
 import UIKit
+import Parse
 
-class RedeemWalletVC: BaseVC {
+class RedeemWalletVC: BaseTableVC, UITextViewDelegate {
 
+    @IBOutlet weak var wordsField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.removeLeftBarButton()
+        wordsField.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func redeemAction(sender: AnyObject) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.showMenu(true)
+        AppManager.sharedInstance.userLocalData = UserLocalData(parseId: PFUser.currentUser()!.objectId!, words: wordsField.text.lowercaseString)
+        if(AppManager.sharedInstance.userLocalData!.verify()) {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.showMenu(true)
+        }else{
+            let alert = UIAlertView(title: "Error"
+                , message: "Invalid words."
+                , delegate: self
+                , cancelButtonTitle: "Ok")
+            alert.show()
+        }
+    }
+    
+    // MARK: UITextField delegate
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
     
 

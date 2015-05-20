@@ -39,13 +39,11 @@ class AddSocialBankVC: BaseTableVC, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*let relation:PFRelation = PFUser.currentUser()!.relationForKey("wallet");
-        let newWallet:Wallet = PFObject(className: "Wallet") as! Wallet
-        newWallet
-        
-        [relation addObject:post];
-        [user saveInBackground];
-        */
+        self.showLoading()
+        APIManager.sharedInstance.saveWallet("generic", socialBank: items[indexPath.row]) { () -> Void in
+            self.hideLoading()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
 
     //MARK: - Search Bar Delegate

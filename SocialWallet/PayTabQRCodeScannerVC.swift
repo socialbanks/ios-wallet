@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PayTabQRCodeScannerVC: BaseQRCodeReaderVC {
+class PayTabQRCodeScannerVC: BaseQRCodeReaderVC, UIAlertViewDelegate {
 
     var wallet:Wallet?
     
@@ -22,21 +22,41 @@ class PayTabQRCodeScannerVC: BaseQRCodeReaderVC {
     override func scanWasSucessful(metadataObj: AVMetadataMachineReadableCodeObject) {
         
         captureSession?.stopRunning()
-        let dataSplit:Array<String> = metadataObj.stringValue!.componentsSeparatedByString("\n")
-        let bitcoinAddress:String = dataSplit[0]
-        let receiverDescription:String = dataSplit[1]
         
+        let data:NSData? = (metadataObj.stringValue).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        var jsonError:NSError?
+        if(data != nil) {
+            let json:NSDictionary? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary
+            if(jsonError == nil) {
+                let btAddress:String? = json!["bitcoin"] as? String
+                let rDescription:String? = json!["receiverDescription"] as? String
+                
+                if(btAddress != nil && rDescription != nil) {   // everything is fine!
+                    let vc:PayTabVC = self.instantiateViewControlerFromStoryboard("PAY_TAB", sbId: "Main") as! PayTabVC
+                    
+                    vc.transaction.setValue(rDescription, forKey: "receiverDescription")
+                    vc.wallet = self.wallet!
+                    
+                    vc.bitcoinAddress = btAddress
+                    vc.receiverDescription = rDescription
+                    
+                    self.navigationController?.showViewController(vc, sender: nil)
+                    
+                    return
+                }
+            }
+            
+        }
+        let alert = UIAlertView(title: "Error"
+            , message: "Invalid QR-code."
+            , delegate: self
+            , cancelButtonTitle: "Ok")
+        alert.show()
         
-        let vc:PayTabVC = self.instantiateViewControlerFromStoryboard("PAY_TAB", sbId: "Main") as! PayTabVC
-        
-        vc.transaction.setValue(receiverDescription, forKey: "receiverDescription")
-        vc.wallet = self.wallet!
-        
-        vc.bitcoinAddress = bitcoinAddress
-        vc.receiverDescription = receiverDescription
-        
-        self.navigationController?.showViewController(vc, sender: nil)
-        
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        captureSession?.startRunning()
     }
 
     // MARK: - Navigation

@@ -14,6 +14,7 @@ class SendVC : BaseTableVC, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var items:Array<PFUser> = []
+    var wallet:Wallet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +48,14 @@ class SendVC : BaseTableVC, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        APIManager.sharedInstance.getUsersWithEmail(searchBar.text, completion: { (results) -> Void in
-            self.items = []
-            for user in results {
-                self.items.append(user)
-            }
-            self.tableView.reloadData()
+        APIManager.sharedInstance.getWalletsWithUserEmailAndSocialBank(searchBar.text
+            , socialBank: wallet!.getSocialBank()
+            , completion: { (results) -> Void in
+                self.items = []
+                for wallet in results {
+                    self.items.append(wallet.getUser())
+                }
+                self.tableView.reloadData()
         })
         
     }
@@ -64,6 +67,7 @@ class SendVC : BaseTableVC, UISearchBarDelegate {
             let vc:SendToVC = segue.destinationViewController as! SendToVC
             let index:Int = sender!.tag - 1000
             vc.userToSend = items[index]
+            vc.wallet = self.wallet!
         }
     }
     

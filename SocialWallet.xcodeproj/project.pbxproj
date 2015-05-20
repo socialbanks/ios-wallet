@@ -19,7 +19,6 @@
 		E658FB771AF5916B00055413 /* SocialBankPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */; };
 		E658FB7B1AF5973900055413 /* SocialBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB7A1AF5973900055413 /* SocialBank.swift */; };
 		E658FB811AF5B04A00055413 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB801AF5B04A00055413 /* Transaction.swift */; };
-		E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */; };
 		E669A5E11AF9A340004DBD32 /* GenerateTwelveWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */; };
 		E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */; };
 		E68AC72A1B08E38000630FEC /* SendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68AC7291B08E38000630FEC /* SendVC.swift */; };
@@ -33,10 +32,9 @@
 		E6A2D6001B07D38300C4BA42 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D5FF1B07D38300C4BA42 /* NetworkManager.swift */; };
 		E6A2D6071B07D89100C4BA42 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */; };
 		E6A2D6091B07FDF400C4BA42 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2D6081B07FDF400C4BA42 /* Wallet.swift */; };
-		E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69551AFED3C300E2A71C /* UserData.swift */; };
+		E6AE69561AFED3C300E2A71C /* UserLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69551AFED3C300E2A71C /* UserLocalData.swift */; };
 		E6AE69581AFED49200E2A71C /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69571AFED49200E2A71C /* AppManager.swift */; };
 		E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE69591AFED6A700E2A71C /* APIManager.swift */; };
-		E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */; };
 		E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */; };
 		E6B7D44A1AF7DD0800E726FF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7D4491AF7DD0800E726FF /* BaseVC.swift */; };
 		E6E3C4371AFA9DFE00D3B2D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4341AFA9DFE00D3B2D3 /* Bolts.framework */; };
@@ -54,7 +52,6 @@
 		E6E3C44F1AFA9EF200D3B2D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4451AFA9EF100D3B2D3 /* SystemConfiguration.framework */; };
 		E6E3C4511AFAA32C00D3B2D3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4501AFAA32C00D3B2D3 /* Accounts.framework */; };
 		E6E3C4531AFAA33300D3B2D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E3C4521AFAA33300D3B2D3 /* Social.framework */; };
-		E6F0C6AE1AF7EC790079C4A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0C6AD1AF7EC790079C4A8 /* User.swift */; };
 		E6F0C6B01AF7EE0F0079C4A8 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +84,6 @@
 		E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialBankPickerVC.swift; sourceTree = "<group>"; };
 		E658FB7A1AF5973900055413 /* SocialBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialBank.swift; sourceTree = "<group>"; };
 		E658FB801AF5B04A00055413 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderVC.swift; sourceTree = "<group>"; };
 		E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTwelveWordsVC.swift; sourceTree = "<group>"; };
 		E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemWalletVC.swift; sourceTree = "<group>"; };
 		E68AC7291B08E38000630FEC /* SendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendVC.swift; sourceTree = "<group>"; };
@@ -101,11 +97,10 @@
 		E6A2D5FF1B07D38300C4BA42 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		E6A2D6081B07FDF400C4BA42 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
-		E6AE69551AFED3C300E2A71C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E6AE69551AFED3C300E2A71C /* UserLocalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocalData.swift; sourceTree = "<group>"; };
 		E6AE69571AFED49200E2A71C /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		E6AE69591AFED6A700E2A71C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E6B7D4401AF7CC9600E726FF /* SocialWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialWallet-Bridging-Header.h"; sourceTree = "<group>"; };
-		E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeVC.swift; sourceTree = "<group>"; };
 		E6B7D4471AF7DCEF00E726FF /* BaseTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
 		E6B7D4491AF7DD0800E726FF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		E6E3C4341AFA9DFE00D3B2D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -123,7 +118,6 @@
 		E6E3C4451AFA9EF100D3B2D3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E6E3C4501AFAA32C00D3B2D3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E6E3C4521AFAA33300D3B2D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		E6F0C6AD1AF7EC790079C4A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,12 +167,12 @@
 		E658FB3E1AF5704600055413 = {
 			isa = PBXGroup;
 			children = (
+				F6ED824C3DB0430FB7B59BBF /* Frameworks */,
 				E6A2D6021B07D46A00C4BA42 /* Libs */,
+				887063E60B11F7E91875E708 /* Pods */,
+				E658FB481AF5704600055413 /* Products */,
 				E658FB491AF5704600055413 /* SocialWallet */,
 				E658FB5F1AF5704700055413 /* SocialWalletTests */,
-				E658FB481AF5704600055413 /* Products */,
-				887063E60B11F7E91875E708 /* Pods */,
-				F6ED824C3DB0430FB7B59BBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,8 +261,7 @@
 			children = (
 				E658FB7A1AF5973900055413 /* SocialBank.swift */,
 				E658FB801AF5B04A00055413 /* Transaction.swift */,
-				E6F0C6AD1AF7EC790079C4A8 /* User.swift */,
-				E6AE69551AFED3C300E2A71C /* UserData.swift */,
+				E6AE69551AFED3C300E2A71C /* UserLocalData.swift */,
 				E6A2D6081B07FDF400C4BA42 /* Wallet.swift */,
 			);
 			name = Models;
@@ -277,16 +270,12 @@
 		E6988A361AFFD6250008AA11 /* SocialBanks */ = {
 			isa = PBXGroup;
 			children = (
-				E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */,
-				E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */,
-				E6A2D5F91B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift */,
-				E6A2D5FB1B07B21800C4BA42 /* PayTabVC.swift */,
-				E658FB821AF5B9C700055413 /* QRCodeReaderVC.swift */,
-				E6A2D5FD1B07C32000C4BA42 /* ReceiveVC.swift */,
-				E68AC72B1B08EC8000630FEC /* SendToVC.swift */,
-				E68AC7291B08E38000630FEC /* SendVC.swift */,
-				E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */,
-				E68AC72D1B08F2BD00630FEC /* AddSocialBankVC.swift */,
+				E6BF55F81B09A7D10048C000 /* Drawer */,
+				E6BF55F61B09A7BD0048C000 /* History */,
+				E6BF55F71B09A7C80048C000 /* Pay Tab */,
+				E6BF55F91B09A7D90048C000 /* Receive */,
+				E6BF55FA1B09A7E00048C000 /* Send */,
+				E6BF55FB1B09A7F50048C000 /* Social Banks */,
 			);
 			name = SocialBanks;
 			sourceTree = "<group>";
@@ -301,7 +290,6 @@
 		E6B7D4411AF7D60E00E726FF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				E6B7D4441AF7DBFF00E726FF /* FirstTimeVC.swift */,
 				E669A5E01AF9A340004DBD32 /* GenerateTwelveWordsVC.swift */,
 				E669A5E21AF9A37B004DBD32 /* RedeemWalletVC.swift */,
 				E6F0C6AF1AF7EE0F0079C4A8 /* RegisterVC.swift */,
@@ -318,6 +306,57 @@
 				E6A2D5F71B07976200C4BA42 /* BaseQRCodeReaderVC.swift */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		E6BF55F61B09A7BD0048C000 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E6A2D6061B07D89100C4BA42 /* HistoryVC.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		E6BF55F71B09A7C80048C000 /* Pay Tab */ = {
+			isa = PBXGroup;
+			children = (
+				E6A2D5FB1B07B21800C4BA42 /* PayTabVC.swift */,
+				E6A2D5F91B079C1800C4BA42 /* PayTabQRCodeScannerVC.swift */,
+			);
+			name = "Pay Tab";
+			sourceTree = "<group>";
+		};
+		E6BF55F81B09A7D10048C000 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				E61F81B01B07163A00EF2731 /* DrawerMenuVC.swift */,
+			);
+			name = Drawer;
+			sourceTree = "<group>";
+		};
+		E6BF55F91B09A7D90048C000 /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				E6A2D5FD1B07C32000C4BA42 /* ReceiveVC.swift */,
+			);
+			name = Receive;
+			sourceTree = "<group>";
+		};
+		E6BF55FA1B09A7E00048C000 /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				E68AC7291B08E38000630FEC /* SendVC.swift */,
+				E68AC72B1B08EC8000630FEC /* SendToVC.swift */,
+			);
+			name = Send;
+			sourceTree = "<group>";
+		};
+		E6BF55FB1B09A7F50048C000 /* Social Banks */ = {
+			isa = PBXGroup;
+			children = (
+				E68AC72D1B08F2BD00630FEC /* AddSocialBankVC.swift */,
+				E658FB761AF5916B00055413 /* SocialBankPickerVC.swift */,
+			);
+			name = "Social Banks";
 			sourceTree = "<group>";
 		};
 		F6ED824C3DB0430FB7B59BBF /* Frameworks */ = {
@@ -487,24 +526,21 @@
 				E6AE695A1AFED6A700E2A71C /* APIManager.swift in Sources */,
 				E658FB811AF5B04A00055413 /* Transaction.swift in Sources */,
 				E6A2D5F81B07976200C4BA42 /* BaseQRCodeReaderVC.swift in Sources */,
-				E658FB831AF5B9C700055413 /* QRCodeReaderVC.swift in Sources */,
 				E658FB7B1AF5973900055413 /* SocialBank.swift in Sources */,
 				E6988A381AFFD85C0008AA11 /* WelcomeVC.swift in Sources */,
 				E658FB771AF5916B00055413 /* SocialBankPickerVC.swift in Sources */,
 				E6A2D6071B07D89100C4BA42 /* HistoryVC.swift in Sources */,
 				E68AC72E1B08F2BD00630FEC /* AddSocialBankVC.swift in Sources */,
 				E6B7D4481AF7DCEF00E726FF /* BaseTableVC.swift in Sources */,
-				E6F0C6AE1AF7EC790079C4A8 /* User.swift in Sources */,
 				E68AC72A1B08E38000630FEC /* SendVC.swift in Sources */,
 				E6A2D6001B07D38300C4BA42 /* NetworkManager.swift in Sources */,
 				E6A2D6091B07FDF400C4BA42 /* Wallet.swift in Sources */,
-				E6B7D4451AF7DBFF00E726FF /* FirstTimeVC.swift in Sources */,
 				E6F0C6B01AF7EE0F0079C4A8 /* RegisterVC.swift in Sources */,
 				E68AC72C1B08EC8000630FEC /* SendToVC.swift in Sources */,
 				E6B7D44A1AF7DD0800E726FF /* BaseVC.swift in Sources */,
 				E6A2D5FE1B07C32000C4BA42 /* ReceiveVC.swift in Sources */,
 				E6A2D5FC1B07B21800C4BA42 /* PayTabVC.swift in Sources */,
-				E6AE69561AFED3C300E2A71C /* UserData.swift in Sources */,
+				E6AE69561AFED3C300E2A71C /* UserLocalData.swift in Sources */,
 				E658FB4D1AF5704600055413 /* AppDelegate.swift in Sources */,
 				E6AE69581AFED49200E2A71C /* AppManager.swift in Sources */,
 				E669A5E31AF9A37B004DBD32 /* RedeemWalletVC.swift in Sources */,
@@ -585,6 +621,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -623,6 +663,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -641,6 +685,19 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bitheri\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MMDrawerController\"",
+					"\"${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL/openssl\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"$(SRCROOT)\"/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SocialWallet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -662,6 +719,19 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bitheri\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MMDrawerController\"",
+					"\"${PODS_ROOT}/Headers/Public/MMDrawerController+Storyboard\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL/openssl\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"$(SRCROOT)\"/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SocialWallet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

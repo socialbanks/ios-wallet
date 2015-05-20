@@ -30,10 +30,17 @@ class DrawerMenuVC: BaseTableVC {
         var alert = UIAlertController(title: "Logout", message: "Do you really wish to log out?", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (alert :UIAlertAction!) in
-            
-            PFUser.logOut()
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.showAuhtentication(true)
+            self.showLoading()
+            PFUser.logOutInBackgroundWithBlock({ (error:NSError?) -> Void in
+                if(error == nil) {
+                    let defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setObject(nil, forKey: "secret")
+                    defaults.synchronize()
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.showAuhtentication(true)
+                }
+                self.hideLoading()
+            })
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)

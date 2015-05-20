@@ -40,13 +40,13 @@ class WelcomeVC: BaseVC, UITextFieldDelegate {
             (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {
-                println("registered and logged as ", user!)
+                //println("logged as ", user!)
                 self.loginWasSuccessful()
             } else {
                 //WARNING: ver todos erros possiveis do parse!!
                 println("%@", error!.description)
                 let alert = UIAlertView(title: "Warning"
-                    , message: error!.description
+                    , message: "Incorrect user name and password"
                     , delegate: nil
                     , cancelButtonTitle: "Ok")
                 alert.show()
@@ -59,7 +59,7 @@ class WelcomeVC: BaseVC, UITextFieldDelegate {
     }
     
     func loginWasSuccessful() {
-        self.hideLoading()
+        AppManager.sharedInstance.userLocalData = UserLocalData(parseId: PFUser.currentUser()!.objectId!)
         let vc:UIViewController = self.instantiateViewControlerFromStoryboard("FirstTime", sbId: "Authentication")
         self.presentViewController(vc, animated: true, completion: nil)
     }

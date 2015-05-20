@@ -20,18 +20,19 @@ class ReceiveVC: BaseVC, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.descriptionField.delegate = self
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        /*
+        let filter2data = CIFilter(name: "CIPhotoEffectChrome")
+        filter2data.setValue(CIImage(image: imageView.image), forKey: kCIInputImageKey)
+        self.filter2image.image = UIImage(CIImage: filter2data.outputImage)
+        */
+        
+        
     }
     
     @IBAction func generateAction(sender: AnyObject) {
         let address = wallet!.getBitcoinAddress()
-        let stringData:String = address + "\n" + descriptionField.text!
+        let stringData:String = "{\"bitcoin\":\"" + address + "\",\"receiverDescription\":\"" + descriptionField.text! + "\"}"
         let data:NSData = stringData.dataUsingEncoding(NSUTF8StringEncoding)!
         
         let qrFilter:CIFilter = CIFilter(name: "CIQRCodeGenerator")
@@ -40,7 +41,9 @@ class ReceiveVC: BaseVC, UITextFieldDelegate {
         
         self.qrCodeImageView.image = nil
         self.qrCodeImageView.image = UIImage(CIImage: qrFilter.outputImage)
+        qrCodeImageView.layer.magnificationFilter = kCAFilterNearest
         self.qrCodeImageView.setNeedsDisplay()
+        qrCodeImageView.layer.magnificationFilter = kCAFilterNearest
     }
 
     // MARK: UITextField delegate

@@ -17,8 +17,10 @@ class SendToVC: BaseTableVC, UITextFieldDelegate {
     
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    var currentString = ""
     
     var userToSend:PFUser?
+    var wallet:Wallet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +43,62 @@ class SendToVC: BaseTableVC, UITextFieldDelegate {
     
     
     @IBAction func sendAction(sender: AnyObject) {
-        
+        self.showLoading()
+        let valueString:NSString = self.valueField.text!
+        let value:Int = ((valueString.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet) as NSArray).componentsJoinedByString("") as NSString).integerValue
+        APIManager.sharedInstance.saveTransactionToUser(userToSend!, value: value
+            , senderWallet: wallet!
+            , senderDescription: self.descriptionField.text
+            ) { (error) -> Void in
+                if error != nil {
+                    let alert = UIAlertView(title: "Error"
+                        , message: error!.description
+                        , delegate: nil
+                        , cancelButtonTitle: "Ok")
+                    alert.show()
+                }
+
+                self.hideLoading()
+                if(error == nil) {
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+        }
     }
     
     // MARK: UITextField delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
+        if(textField.isEqual(self.descriptionField)) {
+            return true
+        }
+        switch string {
+        case "0","1","2","3","4","5","6","7","8","9":
+            currentString += string
+            formatCurrency(string: currentString)
+        default:
+            var array = Array(string)
+            var currentStringArray = Array(currentString)
+            if array.count == 0 && currentStringArray.count != 0 {
+                currentStringArray.removeLast()
+                currentString = ""
+                for character in currentStringArray {
+                    currentString += String(character)
+                }
+                formatCurrency(string: currentString)
+            }
+        }
+        return false
+    }
+    
+    func formatCurrency(#string: String) {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.locale = NSLocale(localeIdentifier: "pt_BR")
+        var numberFromField = (NSString(string: currentString).doubleValue)/100
+        valueField.text = formatter.stringFromNumber(numberFromField)
     }
 }

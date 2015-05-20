@@ -14,8 +14,8 @@ class BaseTableVC: UITableViewController {
         let tmpHUD:MBProgressHUD = MBProgressHUD(view: self.view)
         self.view.addSubview(tmpHUD)
         //tmpHUD.delegate = self
-        tmpHUD.labelText = "Aguarde"
-        tmpHUD.detailsLabelText = "Carregando dados..."
+        tmpHUD.labelText = "Wait"
+        tmpHUD.detailsLabelText = "Connecting to server..."
         //tmpHUD.square = true
         return tmpHUD
         }()

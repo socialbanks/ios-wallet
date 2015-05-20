@@ -10,7 +10,7 @@ import Foundation
 
 class AppManager {
     
-    var userData:UserData!
+    var userLocalData:UserLocalData?
     var debugMode:Bool!
     
     //MARK: - Singleton

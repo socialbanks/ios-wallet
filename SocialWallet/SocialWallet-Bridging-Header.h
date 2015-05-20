@@ -20,8 +20,11 @@
 #import "NSString+Base58.h"
 #import "BTBIP32Key.h"
 #import "BTBIP39.h"
+#import "BTTxBuilder.h"
 #import "NSData+Hash.h"
 #import "BTHDMAddress.h"
+#import "NSString+Base58.h"
+#import "BTTxProvider.h"
 
 #import <Reachability.h>
 

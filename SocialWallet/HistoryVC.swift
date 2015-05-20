@@ -89,12 +89,24 @@ class TransactionCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     func loadFromTransaction(object:Transaction) {
-        dateLabel.text = object.createdAt!.description
-        timeLabel.text = ""
+        let creation:NSDate = object.createdAt!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        self.dateLabel.text = dateFormatter.stringFromDate(creation)
+        self.timeLabel.text = ""
         
         let major:Int = object.getValue()/100
         let minor:Int = object.getValue() % 100
-        amountLabel.text = major.description + "," + minor.description
+        
+        if minor < 10 {
+            self.amountLabel.text = major.description + "," + "0" + minor.description
+        }else{
+            self.amountLabel.text = major.description + "," + minor.description
+            
+        }
 
         if(object.isSender) {
             operationLabel.text = "-"
@@ -108,17 +120,5 @@ class TransactionCell: UITableViewCell {
             amountLabel.textColor = UIColor.greenColor()
         }
         
-        
-        
-        /*self.dateLabel.text = object.date
-        self.descriptionLabel.text = object.descriptionText
-        
-        if(object.amount > 0) {
-            self.amountLabel.text = "+ " + object.amount.description
-            self.amountLabel.textColor = UIColor.greenColor()
-        }else{
-            self.amountLabel.text = "- " + fabsf(object.amount).description
-            self.amountLabel.textColor = UIColor.redColor()
-        }*/
     }
 }

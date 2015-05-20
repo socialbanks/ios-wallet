@@ -16,6 +16,7 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
     
     func initTextFields() {
         self.firstnameField.delegate = self
@@ -23,11 +24,11 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
         self.emailField.delegate = self
         self.usernameField.delegate = self
         self.passwordField.delegate = self
+        self.confirmPasswordField.delegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initTextFields()
     }
     
@@ -42,11 +43,67 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
     }
     
     func registerWasSuccessful() {
+        AppManager.sharedInstance.userLocalData = UserLocalData(parseId: PFUser.currentUser()!.objectId!)
         let vc:UIViewController = self.instantiateViewControlerFromStoryboard("FirstTime", sbId: "Authentication")
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
     @IBAction func registerAction(sender: AnyObject) {
+        
+        if firstnameField.text.isEmpty {
+            let alert = UIAlertView(title: "Warning"
+                , message: "Type in your first name"
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
+        if lastnameField.text.isEmpty {
+            let alert = UIAlertView(title: "Warning"
+                , message: "Type in your last name"
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
+        if emailField.text.isEmpty {
+            let alert = UIAlertView(title: "Warning"
+                , message: "Type in your email"
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
+        if usernameField.text.isEmpty {
+            let alert = UIAlertView(title: "Warning"
+                , message: "Type in your user name"
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
+        if passwordField.text.isEmpty {
+            let alert = UIAlertView(title: "Warning"
+                , message: "Type in your password"
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
+        if confirmPasswordField.text != passwordField.text {
+            let alert = UIAlertView(title: "Error"
+                , message: "Password confirmation does not match."
+                , delegate: nil
+                , cancelButtonTitle: "Ok")
+            alert.show()
+            return
+        }
+        
         let dict:NSDictionary = ["firstName":firstnameField.text
             ,"lastName": lastnameField.text
             ,"email": emailField.text
@@ -64,8 +121,8 @@ class RegisterVC: BaseTableVC, UITextFieldDelegate {
             } else {
                 //WARNING: ver todos erros possiveis do parse!!
                 println("%@", error!.description)
-                let alert = UIAlertView(title: "Warning"
-                    , message: error!.description
+                let alert = UIAlertView(title: "Error"
+                    , message: "Registering failed. Please, try again later."
                     , delegate: nil
                     , cancelButtonTitle: "Ok")
                 alert.show()

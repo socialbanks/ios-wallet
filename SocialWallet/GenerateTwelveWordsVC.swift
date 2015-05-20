@@ -8,8 +8,26 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class GenerateTwelveWordsVC: BaseVC {
+class GenerateTwelveWordsVC: BaseTableVC {
+    
+    //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var understoodButton: UIButton!
+    @IBOutlet weak var wordsLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        AppManager.sharedInstance.userLocalData = UserLocalData(parseId: PFUser.currentUser()!.objectId!)
+        AppManager.sharedInstance.userLocalData!.generatePrivateAddress()
+        wordsLabel.text =  AppManager.sharedInstance.userLocalData!.getWords()
+        self.removeLeftBarButton()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     @IBAction func understoodAction(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
