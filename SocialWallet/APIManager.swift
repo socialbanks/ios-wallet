@@ -58,10 +58,10 @@ class APIManager {
                 // TODO: A virgula maldita!
                 trans.setObject(value, forKey: "value")
                 trans.setObject(senderWallet, forKey: "senderWallet")
-                trans.setObject(senderWallet.getBitcoinAddress(), forKey: "senderAddress")
+                //trans.setObject(senderWallet.getBitcoinAddress(), forKey: "senderAddress")
                 trans.setObject(senderDescription, forKey: "senderDescription")
                 trans.setObject(recWallet!, forKey: "receiverWallet")
-                trans.setObject(recWallet!.getBitcoinAddress(), forKey: "receiverAddress")
+                //trans.setObject(recWallet!.getBitcoinAddress(), forKey: "receiverAddress")
                 trans.setObject(receiverDescription, forKey: "receiverDescription")
                 var error:NSError?
                 trans.save(&error)
@@ -93,9 +93,9 @@ class APIManager {
                 // TODO: A virgula maldita!
                 trans.setObject(value, forKey: "value")
                 trans.setObject(senderWallet, forKey: "senderWallet")
-                trans.setObject(senderWallet.getBitcoinAddress(), forKey: "senderAddress")
+                //trans.setObject(senderWallet.getBitcoinAddress(), forKey: "senderAddress")
                 trans.setObject(senderDescription, forKey: "senderDescription")
-                trans.setObject(recWallet!, forKey: "receiverWallet")
+                //trans.setObject(recWallet!, forKey: "receiverWallet")
                 trans.setObject(recWallet!.getBitcoinAddress(), forKey: "receiverAddress")
                 trans.setObject("Received from " + (PFUser.currentUser()!.objectForKey("email") as! String), forKey: "receiverDescription")
                 var error:NSError?
